@@ -1,24 +1,23 @@
 <?php
-class Movie {
-    public $title;
-    public $year;
-    public $genres;
-
-    public function __construct($title, $year, $genres = []) {
-        $this->title = $title;
-        $this->year = $year;
-        $this->genres = $genres;
-    }
-
-    public function getInfo() {
-        $genresList = implode(", ", $this->genres);
-        return "{$this->title} ({$this->year}) - Generi: {$genresList}";
-    }
-}
-
-$movie1 = new Movie("Inception", 2010, ["Sci-Fi", "Action"]);
-$movie2 = new Movie("The Matrix", 1999, ["Sci-Fi", "Adventure"]);
-
-echo $movie1->getInfo() . "<br>";
-echo $movie2->getInfo() . "<br>";
+require_once __DIR__ . '/db.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+</head>
+<body>
+
+<h1>Movies List</h1>
+
+<?php
+foreach ($movies as $movie) {
+    echo $movie->getInfo() . "<br>";
+}
+?>
+
+</body>
+</html>
