@@ -1,4 +1,5 @@
 <?php
+// Inclusione del database con i film
 require_once __DIR__ . '/db.php';
 ?>
 
@@ -7,12 +8,13 @@ require_once __DIR__ . '/db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies List</title>
+    <title>php-oop-1</title>
 </head>
 <body>
 
 <h1>Movies List</h1>
 
+<!-- Ciclo per stampare la lista dei film -->
 <?php
 foreach ($movies as $movie) {
     echo $movie->getInfo() . "<br>";
